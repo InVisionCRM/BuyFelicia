@@ -10,20 +10,20 @@ export type InfiniteMovingCardItem = {
 };
 
 export const FELICIA_QUOTES: InfiniteMovingCardItem[] = [
-  { quote: "I don’t chase pumps — pumps chase me.", name: "Felicia", title: "Quote" },
-  { quote: "If you’re not holding me, you’re holding an L.", name: "Felicia", title: "Quote" },
-  { quote: "I’m not volatile, I’m just unpredictable… like fashion week.", name: "Felicia", title: "Quote" },
-  { quote: "Honey, I am the liquidity.", name: "Felicia", title: "Quote" },
-  { quote: "Rug pull? Sweetie, I only pull up in Lambos.", name: "Felicia", title: "Quote" },
-  { quote: "I don’t need a bull run. I am the stampede.", name: "Felicia", title: "Quote" },
-  { quote: "Charts are for nerds. I’m here for vibes.", name: "Felicia", title: "Quote" },
-  { quote: "Buy low, sell never. That’s my skincare routine.", name: "Felicia", title: "Quote" },
-  { quote: "I didn’t come to moon — the moon came to me.", name: "Felicia", title: "Quote" },
-  { quote: "If you’re still in the red, maybe you’re just allergic to profits.", name: "Felicia", title: "Quote" },
-  { quote: "The only dip I touch is guacamole.", name: "Felicia", title: "Quote" },
-  { quote: "Gas fees? Please. I only run on champagne.", name: "Felicia", title: "Quote" },
-  { quote: "Buy me now or regret me forever, sugar.", name: "Felicia", title: "Quote" },
-  { quote: "I’m not a meme — I’m a movement.", name: "Felicia", title: "Quote" },
+  { quote: "I don’t chase pumps — pumps chase me.", name: "", title: "Quote" },
+  { quote: "If you’re not holding me, you’re holding an L.", name: "", title: "Quote" },
+  { quote: "I’m not volatile, I’m just unpredictable… like fashion week.", name: "", title: "Quote" },
+  { quote: "Honey, I am the liquidity.", name: "", title: "Quote" },
+  { quote: "Rug pull? Sweetie, I only pull up in Lambos.", name: "", title: "Quote" },
+  { quote: "I don’t need a bull run. I am the stampede.", name: "", title: "Quote" },
+  { quote: "Charts are for nerds. I’m here for vibes.", name: "", title: "Quote" },
+  { quote: "Buy low, sell never. That’s my skincare routine.", name: "", title: "Quote" },
+  { quote: "I didn’t come to moon — the moon came to me.", name: "", title: "Quote" },
+  { quote: "If you’re still in the red, maybe you’re just allergic to profits.", name: "", title: "Quote" },
+  { quote: "The only dip I touch is guacamole.", name: "", title: "Quote" },
+  { quote: "Gas fees? Please. I only run on champagne.", name: "", title: "Quote" },
+  { quote: "Buy me now or regret me forever, sugar.", name: "", title: "Quote" },
+  { quote: "I’m not a meme — I’m a movement.", name: "", title: "Quote" },
 ];
 
 export type InfiniteMovingCardsProps = {
@@ -105,17 +105,14 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
             )}
           >
             <blockquote>
+              <div className="relative z-20 mb-3 flex justify-center">
+                <span className="text-[11px] px-2 py-1 rounded-full bg-neutral-100 text-neutral-700 dark:bg-zinc-800 dark:text-gray-200 uppercase tracking-wide font-semibold">
+                  {item.title}
+                </span>
+              </div>
               <span className="relative z-20 text-sm leading-relaxed font-normal text-neutral-800 dark:text-gray-100 text-center block">
                 {item.quote}
               </span>
-              <div className="relative z-20 mt-5 flex flex-col items-center text-center">
-                <span className="text-xs leading-relaxed font-medium text-neutral-500 dark:text-gray-400 uppercase tracking-wide">
-                  {item.title}
-                </span>
-                <span className="text-sm leading-relaxed font-semibold text-neutral-700 dark:text-gray-300">
-                  {item.name}
-                </span>
-              </div>
             </blockquote>
           </li>
         ))}

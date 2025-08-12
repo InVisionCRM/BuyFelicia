@@ -83,10 +83,32 @@ body {
 
 .degen-button {
   transition: all 0.3s ease;
+  /* Improve touch targets for mobile */
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 .degen-button:hover {
   transform: scale(1.05);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .degen-button {
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+  
+  /* Improve mobile scrolling performance */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Better spacing for mobile cards */
+  .grid {
+    gap: 1rem;
+  }
 }
 
 /* Fun button effects */
@@ -137,9 +159,32 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
     background-image: radial-gradient(ellipse at top left, rgba(233,0,255,0.04), transparent 40%), radial-gradient(ellipse at bottom right, rgba(22,255,0,0.04), transparent 40%);
+    /* Optimize for mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize transitions and animations for mobile */
+  @media (prefers-reduced-motion: no-preference) {
+    * {
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  
+  /* Ensure smooth scrolling on all devices */
+  @supports (scroll-behavior: smooth) {
+    html, body {
+      scroll-behavior: smooth;
+    }
   }
 }
 
