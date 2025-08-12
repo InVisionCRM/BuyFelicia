@@ -47,7 +47,7 @@ export default function Home() {
       <HeroSection />
       <InfiniteCardsSection />
       <AboutSection />
-      <TokenomicsSection contractAddress={contractAddress} />
+      <TokenomicsSection />
       <HowToBuySection />
       <MemeVaultSection blobImages={blobImages} />
       <RoadmapSection />

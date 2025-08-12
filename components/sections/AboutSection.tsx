@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
@@ -25,7 +26,20 @@ export default function AboutSection() {
             It’s a parody of the pump, the dump, and the endless &quot;to the moon&quot; chants. A meme for people who are tired of chasing memes… and would rather laugh on the way up (or down).
           </p>
         </div>
-        {/* FAQ scroller removed from About to simplify */}
+        
+        {/* Image at bottom of About section */}
+        <div className="mt-12 text-center">
+          <div className="relative inline-block">
+            <Image
+              src="https://zgzhxntyxikp1c4w.public.blob.vercel-storage.com/images/IMG_0316.JPG"
+              alt="Buy Felicia"
+              width={600}
+              height={400}
+              className="rounded-3xl shadow-2xl mx-auto"
+              priority={false}
+            />
+          </div>
+        </div>
       </div>
     </motion.section>
   );

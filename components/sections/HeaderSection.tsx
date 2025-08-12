@@ -1,10 +1,13 @@
 "use client";
 import ColourfulText from "@/components/ui/colourful-text";
-import React from "react";
+import React, { useState } from "react";
 
 export default function HeaderSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false); // Close menu after navigation
   };
 
   return (
@@ -30,14 +33,74 @@ export default function HeaderSection() {
                 Buy Now
               </span>
             </button>
-            <button className="md:hidden text-foreground" aria-label="Open menu">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button 
+              className="md:hidden text-foreground" 
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
+      
+      {/* Mobile Navigation Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t-2 border-[#E900FF] shadow-lg">
+          <nav className="px-6 py-4 space-y-4 zain-bold">
+            <button 
+              onClick={() => scrollToSection("hero")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => scrollToSection("about")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              What is BYFI?
+            </button>
+            <button 
+              onClick={() => scrollToSection("tokenomics")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              Tokenomics
+            </button>
+            <button 
+              onClick={() => scrollToSection("howtobuy")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              How to Buy
+            </button>
+            <button 
+              onClick={() => scrollToSection("memes")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              Memes
+            </button>
+            <button 
+              onClick={() => scrollToSection("roadmap")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2 border-b border-gray-100"
+            >
+              Roadmap
+            </button>
+            <button 
+              onClick={() => scrollToSection("socials")} 
+              className="block w-full text-left text-black hover:text-[#E900FF] transition-colors py-2"
+            >
+              Socials
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

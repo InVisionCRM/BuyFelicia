@@ -1,21 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { GlareCard } from "@/components/ui/glare-card";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
-export default function TokenomicsSection({ contractAddress }: { contractAddress: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(contractAddress);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
-    }
-  };
+export default function TokenomicsSection() {
 
   return (
     <motion.section
@@ -32,27 +21,21 @@ export default function TokenomicsSection({ contractAddress }: { contractAddress
           <p className="text-xl font-bold text-foreground">100% DEGEN-APPROVED DISTRIBUTION!</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-sm md:max-w-none mx-auto">
-          <GlareCard className="bg-[#FFF0FF]">
-            <div className="p-4 bg-transparent min-h-[120px] flex flex-col justify-center items-center text-center">
-              <h4 className="text-base font-bold text-foreground mb-1">TICKER</h4>
-              <p className="text-4xl font-bold text-[#E900FF]">BYFI</p>
-              <p className="text-sm mt-2">BYE FELICIA!</p>
-            </div>
-          </GlareCard>
-          <GlareCard className="bg-[#F0FFF0]">
-            <div className="p-4 bg-transparent min-h-[120px] flex flex-col justify-center items-center text-center">
-              <h4 className="text-base font-bold text-foreground mb-1">NETWORK</h4>
-              <p className="text-4xl font-bold text-[#16FF00]">BASE</p>
-              <p className="text-sm mt-2">BASED & LOADED!</p>
-            </div>
-          </GlareCard>
-          <GlareCard className="bg-[#F0FFFF]">
-            <div className="p-4 bg-transparent min-h-[120px] flex flex-col justify-center items-center text-center">
-              <h4 className="text-base font-bold text-foreground mb-1">SUPPLY</h4>
-              <p className="text-4xl font-bold text-[#00F5FF]">100B</p>
-              <p className="text-sm mt-2">BILLIONS & BILLIONS!</p>
-            </div>
-          </GlareCard>
+          <div className="p-4 bg-[#FFF0FF] min-h-[120px] flex flex-col justify-center items-center text-center rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold text-foreground mb-1">TICKER</h4>
+            <p className="text-4xl font-bold text-[#E900FF]">BYFI</p>
+            <p className="text-sm mt-2">BYE FELICIA!</p>
+          </div>
+          <div className="p-4 bg-[#F0FFF0] min-h-[120px] flex flex-col justify-center items-center text-center rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold text-foreground mb-1">NETWORK</h4>
+            <p className="text-4xl font-bold text-[#16FF00]">BASE</p>
+            <p className="text-sm mt-2">BASED & LOADED!</p>
+          </div>
+          <div className="p-4 bg-[#F0FFFF] min-h-[120px] flex flex-col justify-center items-center text-center rounded-2xl shadow-lg">
+            <h4 className="text-base font-bold text-foreground mb-1">SUPPLY</h4>
+            <p className="text-4xl font-bold text-[#00F5FF]">100B</p>
+            <p className="text-sm mt-2">BILLIONS & BILLIONS!</p>
+          </div>
         </div>
 
         <GlareCard className="bg-[#FFF5FE]" fullWidth>
@@ -73,17 +56,18 @@ export default function TokenomicsSection({ contractAddress }: { contractAddress
           </div>
         </GlareCard>
 
-        <div className="mt-8">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-foreground mb-4">CONTRACT ADDRESS</h3>
-            <div className="bg-muted rounded-2xl p-4 mb-6 max-w-2xl mx-auto">
-              <div className="bg-background rounded-xl p-4 break-all text-sm font-mono text-foreground border-2 border-[#16FF00]">
-                {contractAddress}
-              </div>
-            </div>
-            <Button onClick={copyToClipboard} className="degen-button bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-xl mb-4">
-              {copied ? "COPIED TO THE MOON!" : "COPY & SEND IT!"}
-            </Button>
+        
+        {/* Image at bottom of Tokenomics section */}
+        <div className="mt-12 text-center">
+          <div className="relative inline-block">
+            <Image
+              src="https://zgzhxntyxikp1c4w.public.blob.vercel-storage.com/images/IMG_0317.JPG"
+              alt="Buy Felicia Tokenomics"
+              width={600}
+              height={400}
+              className="rounded-3xl shadow-2xl mx-auto"
+              priority={false}
+            />
           </div>
         </div>
       </div>
